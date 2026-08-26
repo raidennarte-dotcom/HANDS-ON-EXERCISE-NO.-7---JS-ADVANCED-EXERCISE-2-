@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Javascript Web Output #2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .input-group {
+        margin-bottom: 8px;
+      }
+      label {
+        display: inline-block;
+        width: 110px;
+      }
+      button {
+        margin-right: 5px;
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-top: 15px;
+        max-width: 700px;
+      }
+      legend {
+        font-weight: bold;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 5px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 6px;
+        text-align: left;
+      }
+      th {
+        background-color: #f9f9f9;
+      }
+      .controls {
+        margin-top: 15px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Javascript Web Output #2</h2>
+
+    <div class="input-group">
+      <label>First Name:</label>
+      <input type="text" id="firstName" />
+    </div>
+    <div class="input-group">
+      <label>Middle Name:</label>
+      <input type="text" id="middleName" />
+    </div>
+    <div class="input-group">
+      <label>Last Name:</label>
+      <input type="text" id="lastName" />
+    </div>
+    <div class="input-group">
+      <label>Age:</label>
+      <input type="number" id="age" min="0" />
+    </div>
+
+    <div style="margin-top: 15px">
+      <button onclick="insertRecord()">Insert</button>
+      <button onclick="clearInputs()">Clear</button>
+    </div>
+
+    <fieldset>
+      <legend>Records</legend>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="recordsTableBody"></tbody>
+      </table>
+    </fieldset>
+
+    <div class="controls">
+      <button onclick="clearRecords()">Clear Records</button>
+
+      <label for="sortBy">Sort by:</label>
+      <select id="sortBy" onchange="sortRecords()">
+        <option value="firstName">First Name</option>
+        <option value="middleName">Middle Name</option>
+        <option value="lastName" selected>Last Name</option>
+        <option value="age">Age</option>
+      </select>
+
+      <select id="sortOrder" onchange="sortRecords()">
+        <option value="asc">A-Z</option>
+        <option value="desc">Z-A</option>
+      </select>
+
+      <button onclick="saveToLocalStorage()">Save to Local Storage</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
